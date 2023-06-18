@@ -1,10 +1,11 @@
 import React from 'react';
 
+import Users from './components/Users';
 
 const App = () => {
   return (
     <div>
-      <h1 className='text-blue-900 text-center '>hello world!</h1>
+      <Users />
     </div>
   );
 };

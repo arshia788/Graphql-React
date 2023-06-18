@@ -8,7 +8,7 @@ import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client'
 // ertebat ma ro miad bargharar mikoneh ba graphql 
 // ApolloClient ertebat ma ba backend graphql miad vasl mikoneh 
 const client = new ApolloClient({
-    uri: "https://graphqlzero.almansi.me/ap",
+    uri: "https://graphqlzero.almansi.me/api",
 
     // * agar data gerefteh beshe dg niaz nabashe dobareh darkhast befrsteim
     // * baray hamin miam yek ja save mikonim ta sg dar khast nafrestim
