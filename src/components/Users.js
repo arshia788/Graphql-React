@@ -1,18 +1,9 @@
 import React from 'react';
 
-import { gql, useQuery } from "@apollo/client";
+import {  useQuery } from "@apollo/client";
+import { GET_USERS } from '../graphql/queries';
 
-// omadi hamoon graphql ro gerefti va inja copy kardi 
-const GET_USERS = gql`
-query{
-  users{
-    data{
-      name,
-      email,
-    }
-  }
-}
-`;
+
 
 const Users = () => {
 
@@ -24,7 +15,14 @@ const Users = () => {
 
     return (
         <div className='text-center'>
-          
+          {
+            data.users.data.map(item=> <div 
+            className='bg-gray-500 text-center text-white mb-4'
+            key={item.id}>
+                <p>{item.name}</p>
+                <p>{item.email}</p>
+            </div> )
+          }
         </div>
     );
 };

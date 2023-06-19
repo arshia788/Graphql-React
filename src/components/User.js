@@ -1,20 +1,8 @@
 import React, { useState } from 'react';
 
 import { gql, useQuery } from "@apollo/client";
+import { GET_USER } from '../graphql/queries';
 
-const GET_USER = gql`
-
-# in ID! ro rafti az hamoon site playground didi ke yani type id hast ID!
-
-query getUser($id: ID!){
-  user(id:$id){
-    id,
-    name,
-    email,
-    phone
-  }
-}
-`
 
 const User = () => {
 
@@ -24,20 +12,27 @@ const User = () => {
         setId(e.target.value)
     }
 
-    const {error, loading, data}= useQuery(GET_USER, {
-
+    const { error, loading, data } = useQuery(GET_USER, {
         // motaghir hay ke mikhay dakhel query estefadeh bokoni ro inja midi 
-        variables:{id:id}
+        variables: { id: id }
     })
 
-    console.log({loading, data, error});
+    console.log({ loading, data, error });
 
     return (
         <div>
             <input
                 className='border-2 border-gray-700'
-                value={id} onChange={changeHandler} 
+                value={id} onChange={changeHandler}
                 placeholder='enter id' />
+
+            {
+                data &&<div>
+                    <p>{data.user.name}</p>
+                    <p>{data.user.email}</p> 
+                </div>
+            }
+
         </div>
     );
 };
